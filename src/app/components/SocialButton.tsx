@@ -1,15 +1,15 @@
 import React from "react";
-import "../page.css";
+import './SocialButton.css';
 
-const SocialButton: React.FC<{ name: string; link: string }> = ({ name, link }) => {
-  return (
-    <button
-      className="social-button"
-      onClick={() => (window.location.href = link)}
-    >
-      {name}
-    </button>
-  );
-};
+interface SocialButtonProps {
+    name: string;
+    link: string;
+}
+const SocialButton: React.FC<SocialButtonProps> = ({ name, link }) => (
+
+    <a className= "social-button" href = { link } target = "_blank" rel = "noppener noreferrer" >
+        { name }
+        </a>
+    );
 
 export default SocialButton;

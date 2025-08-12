@@ -11,6 +11,8 @@ import { GlassCard } from "./components/glassism/glass-card";
 import GlassPanel from "./components/glassism/glass-panel";
 import { AdvancedFakeReflectionSetup } from "./aquaism/backgrounds/reflective-background";
 import Image from "next/image";
+import { forwardEventToCanvas } from "./components/forwardEventToCanvas";
+import SocialButton from "@/app/components/SocialButton";
 
 export default function Home(): JSX.Element {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -20,83 +22,20 @@ export default function Home(): JSX.Element {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Social Button Component
-  const SocialButton: React.FC<{ name: string, link: string }> = ({ name, link }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
+  const App: React.FC = () => {
     return (
-      <button
-        style={{
-          background: 'none',
-          border: 'none',
-          color: isHovered ? '#4488ff' : 'rgba(255,255,255,0.7)',
-          fontSize: '14px',
-          cursor: 'pointer',
-          transition: 'color 0.3s ease',
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onClick={() => window.location.href = link}
-      >
-        {name}
-      </button>
-    );
-  };
+      <>
+        <SocialButton name="" link="" />
+      </>
+    )
+  }
 
   useEffect(() => {
     const overlay: HTMLDivElement | null = overlayRef.current;
     const canvasContainer: HTMLDivElement | null = canvasContainerRef.current;
     if (!overlay || !canvasContainer) return;
 
-    // Function to forward events to canvas
-    const forwardEventToCanvas = (originalEvent: MouseEvent | WheelEvent | PointerEvent): void => {
-      const canvas: HTMLCanvasElement | null = canvasContainer.querySelector('canvas');
-      if (!canvas) return;
-
-      const eventInit: MouseEventInit = {
-        bubbles: true,
-        cancelable: true,
-        clientX: (originalEvent as MouseEvent).clientX,
-        clientY: (originalEvent as MouseEvent).clientY,
-        screenX: (originalEvent as MouseEvent).screenX,
-        screenY: (originalEvent as MouseEvent).screenY,
-        ctrlKey: originalEvent.ctrlKey,
-        shiftKey: originalEvent.shiftKey,
-        altKey: originalEvent.altKey,
-        metaKey: originalEvent.metaKey,
-        button: (originalEvent as MouseEvent).button,
-        buttons: (originalEvent as MouseEvent).buttons,
-        relatedTarget: (originalEvent as MouseEvent).relatedTarget,
-        view: window
-      };
-
-      if (originalEvent.type.includes('wheel')) {
-        const wheelOriginal = originalEvent as WheelEvent;
-        const wheelEvent: WheelEvent = new WheelEvent(originalEvent.type, {
-          ...eventInit,
-          deltaX: wheelOriginal.deltaX,
-          deltaY: wheelOriginal.deltaY,
-          deltaZ: wheelOriginal.deltaZ,
-          deltaMode: wheelOriginal.deltaMode
-        });
-        canvas.dispatchEvent(wheelEvent);
-      } else if (originalEvent.type.includes('mouse')) {
-        const mouseEvent: MouseEvent = new MouseEvent(originalEvent.type, eventInit);
-        canvas.dispatchEvent(mouseEvent);
-      } else if (originalEvent.type.includes('pointer')) {
-        const pointerOriginal = originalEvent as PointerEvent;
-        const pointerEvent: PointerEvent = new PointerEvent(originalEvent.type, {
-          ...eventInit,
-          pointerId: pointerOriginal.pointerId,
-          pointerType: pointerOriginal.pointerType,
-          width: pointerOriginal.width,
-          height: pointerOriginal.height,
-          pressure: pointerOriginal.pressure,
-          tiltX: pointerOriginal.tiltX,
-          tiltY: pointerOriginal.tiltY
-        });
-        canvas.dispatchEvent(pointerEvent);
-      }
-    };
+    // Function to forward events to canvas    
 
     const eventsToForward: readonly string[] = [
       'mousedown', 'mouseup', 'mousemove', 'mouseenter', 'mouseleave',
@@ -107,7 +46,8 @@ export default function Home(): JSX.Element {
     const handlers: Record<string, (e: Event) => void> = {};
     eventsToForward.forEach((eventType: string) => {
       handlers[eventType] = (e: Event): void => {
-        forwardEventToCanvas(e as MouseEvent | WheelEvent | PointerEvent);
+        const canvas = canvasContainer.querySelector('canvas');
+        forwardEventToCanvas(e as MouseEvent | WheelEvent | PointerEvent, canvas);
       };
       overlay.addEventListener(eventType, handlers[eventType], { capture: true });
     });
@@ -335,7 +275,7 @@ export default function Home(): JSX.Element {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                }}>
+              }}>
                 {['Home', 'About', 'Services', 'Partners', 'Contact'].map((item) => (
                   <button
                     key={item}
@@ -932,7 +872,10 @@ export default function Home(): JSX.Element {
                 display: 'flex',
                 gap: '20px',
               }}>
-                {[{ name: 'LinkedIn', link: 'https://it.linkedin.com/company/sfb-srl' }, { name: 'GitHub', link: 'https://github.com/Serp1co' }].map((social) => (
+                {[
+                  { name: 'LinkedIn', link: 'https://it.linkedin.com/company/sfb-srl' },
+                  { name: 'GitHub', link: 'https://github.com/Serp1co' }
+                ].map((social) => (
                   <SocialButton key={social.name} name={social.name} link={social.link} />
                 ))}
               </div>
