@@ -11,8 +11,9 @@ import { GlassCard } from "./components/glassism/glass-card";
 import GlassPanel from "./components/glassism/glass-panel";
 import { AdvancedFakeReflectionSetup } from "./aquaism/backgrounds/reflective-background";
 import Image from "next/image";
-import { forwardEventToCanvas } from "./components/forwardEventToCanvas";
-import SocialButton from "@/app/components/SocialButton";
+import { forwardEventToCanvas } from "./components/forward-event-to-canvas";
+import SocialButton from "@/app/components/social-button";
+import SocialButtonList from "./components/social-button-list";
 
 export default function Home(): JSX.Element {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -20,15 +21,6 @@ export default function Home(): JSX.Element {
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Social Button Component
-  const App: React.FC = () => {
-    return (
-      <>
-        <SocialButton name="" link="" />
-      </>
-    )
-  }
 
   useEffect(() => {
     const overlay: HTMLDivElement | null = overlayRef.current;
@@ -872,12 +864,12 @@ export default function Home(): JSX.Element {
                 display: 'flex',
                 gap: '20px',
               }}>
-                {[
-                  { name: 'LinkedIn', link: 'https://it.linkedin.com/company/sfb-srl' },
-                  { name: 'GitHub', link: 'https://github.com/Serp1co' }
-                ].map((social) => (
-                  <SocialButton key={social.name} name={social.name} link={social.link} />
-                ))}
+                <SocialButtonList
+                  links={[
+                    { name: 'LinkedIn', link: 'https://it.linkedin.com/company/sfb-srl' },
+                    { name: 'GitHub', link: 'https://github.com/Serp1co' }
+                  ]}
+                />
               </div>
             </div>
           </GlassPanel>
