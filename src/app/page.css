@@ -1,0 +1,14 @@
+.footer {
+    position: fixed;
+    bottom: -10;
+    left: -5;
+    right: -5;
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

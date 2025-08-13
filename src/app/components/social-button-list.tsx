@@ -1,5 +1,6 @@
 import React from "react";
 import SocialButton, { SocialButtonProps } from "./social-button";
+import "./social-button.css"
 
 export interface SocialButtonListProps {
     links: SocialButtonProps[];
