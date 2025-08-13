@@ -1,0 +1,18 @@
+.contact-glass-panel {
+    min-width: 380px;
+    min-height: 300px;
+}
+
+.contact-section>div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact-section {
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,1);
+}

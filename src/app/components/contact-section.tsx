@@ -1,6 +1,7 @@
 import React from "react";
 import GlassPanel from "./glassism/glass-panel";
 import Image from "next/image";
+import './contact-section.css'
 
 export interface ContactSectionProps {
     icon: string;
@@ -13,9 +14,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ icon, title, content })
         height={200}
         blur={15}
         glassColor="rgba(68,136,255,0.05)"
-        style={{ minWidth: '380px', minHeight: '300px' }}
+        className="contact-panel"
     >
-        <div
+        <div className="contact-content"
             style={{
                 textAlign: 'center',
                 display: 'flex',
@@ -25,7 +26,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ icon, title, content })
                 padding: '20px'
             }}
         >
-            <div style={{ fontSize: '36px', marginBottom: '15px' }}>
+            <div className="contact-icon" style={{ fontSize: '36px', marginBottom: '15px' }}>
                 <Image
                     src={icon}
                     alt={title}
@@ -36,7 +37,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ icon, title, content })
                     }}
                 />
             </div>
-            <h3 style={{
+            <h3 className="contact-title" style={{
                 fontSize: '20px',
                 marginBottom: '10px',
                 color: 'white',
@@ -45,7 +46,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ icon, title, content })
                 {title}
             </h3>
             {content.map((line, i) => (
-                <p key={i} style={{
+                <p key={i} 
+                className="contact-line" style={{
                     fontSize: '16px',
                     color: 'rgba(255,255,255,0.8)',
                     margin: '5px 0',

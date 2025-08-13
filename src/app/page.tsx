@@ -713,7 +713,7 @@ export default function Home(): JSX.Element {
           <div className="contact-container">
             <div className="contact-header">
               <h2>Get in Touch</h2>
-              <p>Let&apo;s discuss how we can help transform your business</p>
+              <p>Let's discuss how we can help transform your business</p>
             </div>
 
             <ContactSectionList
