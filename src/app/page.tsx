@@ -12,10 +12,10 @@ import GlassPanel from "./components/glassism/glass-panel";
 import { AdvancedFakeReflectionSetup } from "./aquaism/backgrounds/reflective-background";
 import Image from "next/image";
 import { forwardEventToCanvas } from "./components/forward-event-to-canvas";
-import SocialButton from "@/app/components/social-button";
-import SocialButtonList from "./components/social-button-list";
+import SocialButton from "@/app/components/social-button/social-button";
+import SocialButtonList from "./components/social-button/social-button-list";
 import "@/app/page.css"
-import ContactSectionList from "./components/contact-section-list";
+import ContactSectionList from "./components/contact-section/contact-section-list";
 
 export default function Home(): JSX.Element {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -301,70 +301,27 @@ export default function Home(): JSX.Element {
         </header>
 
         {/* Hero Section */}
-        <section id="hero" style={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'relative',
-          padding: '120px 20px 80px',
-        }}>
-          <div className="animate-in" style={{
-            textAlign: 'center',
-            maxWidth: '900px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '40px',
-          }}>
+        <section id="hero">
+          <div className="animate-in">
             <Image
               src="/sfbs-logo.png"
               alt="SFB"
               height={300}
               width={300}
-              style={{
-                height: '180px',
-                width: 'auto',
-                filter: 'drop-shadow(0 4px 20px rgba(0, 0, 0, 1))',
-                paddingBottom: '40px',
-                paddingTop: '20px',
-              }}
-            />
-            <h1 style={{
-              fontSize: 'clamp(36px, 6vw, 72px)',
-              fontWeight: 'bold',
-              marginBottom: '20px',
-              color: 'white',
-              textShadow: '0 4px 20px rgba(0, 0, 0, 1)',
-              lineHeight: 1.1,
-            }}>
+              className="hero-logo"/>
+            <h1>
               STRIVE FOR BETTER
             </h1>
-            <p style={{
-              fontSize: 'clamp(18px, 2.5vw, 28px)',
-              color: 'rgba(255,255,255,0.8)',
-              marginBottom: '40px',
-              textShadow: '0 4px 20px rgba(0, 0, 0, 1)',
-            }}>
+            <p>
               Infrastructure. Development. Security.
             </p>
-            <div style={{
-              display: 'flex',
-              gap: '20px',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              paddingBottom: '20px',
-            }}>
+            <div className="glass-container">
               <GlassButton
                 variant="primary"
                 blur={30}
                 width={180}
                 onClick={() => scrollToSection('services')}
-                style={{
-                  textShadow: '0 4px 20px rgba(0, 0, 0, 1)'
-                }}
-              >
+                className="hero-button">
                 Our Services
               </GlassButton>
               <GlassButton
@@ -385,65 +342,28 @@ export default function Home(): JSX.Element {
         <GlassPanel blur={10}
           glassColor="rgba(0, 0, 0, 0)"
           borderRadius={0}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: 'fit-content',
-            flexDirection: 'column',
-            marginLeft: '-10px',
-            marginRight: '-10px',
-          }}
-        >
+          className="about-section-panel" >
 
-          <section id="about" style={{
-            padding: '100px 20px',
-            position: 'relative',
-          }}>
-            <div style={{
-              maxWidth: '1200px',
-              margin: '0 auto',
-            }}>
-              <div style={{
-                textAlign: 'center',
-                marginBottom: '60px',
-              }}>
-                <h2 style={{
-                  fontSize: 'clamp(32px, 4vw, 48px)',
-                  fontWeight: 'bold',
-                  color: 'white',
-                  marginBottom: '20px',
-                  textShadow: '0 4px 20px rgba(0, 0, 0, 1)'
-                }}>
+          <section id="about">
+            <div>
+              <div>
+                <h2 className="about-us">
                   About Us
                 </h2>
-                <p style={{
-                  fontSize: '20px',
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  maxWidth: '800px',
-                  margin: '0 auto',
-                  textShadow: '0 4px 20px rgba(0, 0, 0, 1)'
-                }}>
+                <p className="about-description">
                   Empowering Businesses Through Innovative IT Solutions
                 </p>
               </div>
 
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-around',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                marginBottom: '60px',
-                gap: '20px',
-              }}>
+              <div className="about-container" >
                 <GlassPanel
                   height={400}
                   blur={20}
-                  style={{ width: '100%', maxWidth: '580px', minHeight: '380px' }}
+                  className="about-container-panel"
                 >
-                  <div style={{ textAlign: 'center', padding: '20px' }}>
-                    <h3 style={{ fontSize: '24px', marginBottom: '20px', textShadow: '0 4px 20px rgba(0, 0, 0, 1)', color: 'white' }}>Our Mission</h3>
-                    <p style={{ fontSize: '16px', lineHeight: 1.8, textShadow: '0 4px 20px rgba(0, 0, 0, 1)', color: 'rgba(255, 255, 255, 1)', textAlign: 'left' }}>
+                  <div className="mission-container">
+                    <h3>Our Mission</h3>
+                    <p>
                       At SFB, we are dedicated to helping organizations transform and thrive in today&apos;s
                       fast-paced digital landscape. We&apos;ve brought together a team of seasoned technology
                       professionals who share a passion for open-source collaboration and a commitment to
@@ -455,21 +375,21 @@ export default function Home(): JSX.Element {
                 <GlassCard
                   height={400}
                   blur={20}
-                  style={{ width: '100%', maxWidth: '580px', minHeight: '380px' }}
+                  className="approach-container-panel"
                 >
-                  <div style={{ textAlign: 'center', padding: '20px' }}>
-                    <h3 style={{ fontSize: '24px', marginBottom: '20px', textShadow: '0 4px 20px rgba(0, 0, 0, 1)', color: 'white' }}>Our Approach</h3>
-                    <ul style={{ listStyle: 'none', padding: 0, textAlign: 'left' }}>
-                      <li style={{ marginBottom: '15px', fontSize: '16px', lineHeight: 1.6, textShadow: '0 4px 20px rgba(0, 0, 0, 1)', color: 'rgba(255,255,255,1)' }}>
+                  <div className="approach-container">
+                    <h3>Our Approach</h3>
+                    <ul>
+                      <li>
                         ✓ Leverage open-source technologies for robust solutions
                       </li>
-                      <li style={{ marginBottom: '15px', fontSize: '16px', lineHeight: 1.6, textShadow: '0 4px 20px rgba(0, 0, 0, 1)', color: 'rgba(255,255,255,1)' }}>
+                      <li>
                         ✓ Partner closely with clients for custom strategies
                       </li>
-                      <li style={{ marginBottom: '15px', fontSize: '16px', lineHeight: 1.6, textShadow: '0 4px 20px rgba(0, 0, 0, 1)', color: 'rgba(255,255,255,1)' }}>
+                      <li>
                         ✓ Foster continuous learning and community sharing
                       </li>
-                      <li style={{ fontSize: '16px', lineHeight: 1.6, textShadow: '0 4px 20px rgba(0, 0, 0, 1)', color: 'rgba(255,255,255,1)' }}>
+                      <li>
                         ✓ Drive measurable growth through innovation
                       </li>
                     </ul>

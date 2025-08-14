@@ -1,5 +1,5 @@
 import React from "react";
-import GlassPanel from "./glassism/glass-panel";
+import GlassPanel from "../glassism/glass-panel";
 import Image from "next/image";
 import './contact-section.css'
 

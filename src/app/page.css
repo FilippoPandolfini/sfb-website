@@ -1,3 +1,175 @@
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 20px 80px;
+}
+
+#hero .animate-in {
+    text-align: center;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#hero .hero-logo {
+    height: 180px;
+    width: auto;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 1));
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+#hero .animate-in>h1 {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+    line-height: 1.1;
+}
+
+#hero .animate-in>p {
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+}
+
+#hero .glass-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+#hero .animate-in .glass-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+#hero .animate-in .glass-button {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+}
+
+.about-section-panel>div:last-child {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: fit-content !important;
+    flex-direction: column !important;
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+}
+
+#about {
+    padding: 100px 20px;
+    position: relative;
+}
+
+#about>div {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#about>div>div {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#about .about-us {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+}
+
+#about .about-description {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+}
+
+#about .about-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    gap: 20px;
+}
+
+#about .about-container-panel>div:last-child {
+    width: 100%;
+    max-width: 580px;
+    min-height: 380px;
+}
+
+#about .mission-container {
+    text-align: center;
+    padding: 20px;
+}
+
+#about .mission-container>h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 1);
+    color: white;
+}
+
+#about .mission-container>p {
+    font-size: 16px;
+    line-height: 1.8;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+    text-align: left;
+}
+
+#about .approach-container-panel {
+    width: 100%;
+    max-width: 580px;
+    min-height: 380px;
+}
+
+#about .approach-container {
+    text-align: center;
+    padding: 20px;
+}
+
+#about .approach-container>h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+    color: white;
+}
+
+#about .approach-container>ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+#about .approach-container>ul>li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+
 .footer {
     position: fixed;
     bottom: -10px;
