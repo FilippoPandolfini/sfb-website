@@ -16,6 +16,8 @@ import SocialButton from "@/app/components/social-button/social-button";
 import SocialButtonList from "./components/social-button/social-button-list";
 import "@/app/page.css"
 import ContactSectionList from "./components/contact-section/contact-section-list";
+import ServiceSection from "./components/services-section/services-section";
+import ServiceSectionList from "./components/services-section/services-section-list";
 
 export default function Home(): JSX.Element {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -308,7 +310,7 @@ export default function Home(): JSX.Element {
               alt="SFB"
               height={300}
               width={300}
-              className="hero-logo"/>
+              className="hero-logo" />
             <h1>
               STRIVE FOR BETTER
             </h1>
@@ -447,109 +449,66 @@ export default function Home(): JSX.Element {
           </section>
 
           {/* Services Section */}
-          <section id="services" style={{
-            padding: '100px 20px',
-            width: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-            <div style={{
-              margin: '0 auto',
-            }}>
-              <div style={{
-                textAlign: 'center',
-                marginBottom: '60px',
-              }}>
-                <h2 style={{
-                  fontSize: 'clamp(32px, 4vw, 48px)',
-                  fontWeight: 'bold',
-                  color: 'white',
-                  marginBottom: '20px',
-                  textShadow: '0 3px 15px rgba(0, 0, 0, 1)',
-                }}>
-                  Our Services
-                </h2>
-                <p style={{
-                  fontSize: '20px',
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  textShadow: '0 4px 20px rgba(0, 0, 0, 1)'
-                }}>
-                  Comprehensive IT solutions tailored to your needs
-                </p>
-              </div>
-
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-around',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '20px',
-              }}>
-                {[
-                  {
-                    title: 'Infrastructure',
-                    description: 'Solid expertise in managing and orchestrating your infrastructures with cloud-native solutions.',
-                    icon: 'services-1.jpg',
-                  },
-                  {
-                    title: 'Development',
-                    description: 'Performant, distributed, robust and maintainable applications built with modern technologies.',
-                    icon: 'services-2.jpg',
-                  },
-                  {
-                    title: 'Security',
-                    description: 'Full degree security consultancy, from system architecture to application security.',
-                    icon: 'services-3.jpg',
-                  },
-                ].map((service, index) => (
-                  <div key={index} style={{
-                    maxWidth: '380px', // Set a fixed width for each item
-                    minWidth: '320px', // Ensure items don't shrink too small
-                  }}>
-                    <GlassCard
-                      height={380}
-                      blur={20}
-                    >
-                      <div style={{ textAlign: 'center', padding: '20px' }}>
-                        <div style={{ fontSize: '64px', marginBottom: '10px' }}>
-                          <GlassPanel style={{ padding: '0' }}>
-                            <GlassPanel
-                              style={{ padding: '0', position: 'absolute', width: '100%', height: '100%' }}
-                              blur={0.4}
-                              glassColor="rgba(0, 6, 92, 0.25)"
-                            />
-                            <Image
-                              src={service.icon}
-                              alt={service.title}
-                              width={300}
-                              height={300}
-                              style={{
-                                opacity: '0.7', borderRadius: '24px', inset: '0px',
-                                border: `1px solid rgba(255,255,255,0.1)`,
-                                transition: 'border-color 0.3s ease',
-                              }} />
-                          </GlassPanel>
-                        </div>
-                        <h3 style={{ fontSize: '28px', marginBottom: '20px', color: 'white', zIndex: '10' }}>
-                          {service.title}
-                        </h3>
-                        <p style={{ fontSize: '16px', lineHeight: 1.7, marginBottom: '30px', textShadow: '0 4px 20px rgba(0, 0, 0, 1)', color: 'rgba(255,255,255,1)' }}>
-                          {service.description}
-                        </p>
-                        <GlassButton
-                          variant="primary"
-                          blur={100}
-                          width={140}
-                          glassColor="rgba(0, 16, 156, 0.1)"
-                        >
-                          Learn More
-                        </GlassButton>
-                      </div>
-                    </GlassCard>
-                  </div>
-                ))}
-              </div>
+          <section
+            id="services"
+            style={{
+              padding: "100px 20px",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <div style={{ textAlign: "center", marginBottom: "60px" }}>
+              <h2
+                style={{
+                  fontSize: "clamp(32px, 4vw, 48px)",
+                  fontWeight: "bold",
+                  color: "white",
+                  marginBottom: "20px",
+                  textShadow: "0 3px 15px rgba(0, 0, 0, 1)",
+                }}
+              >
+                Our Services
+              </h2>
+              <p
+                style={{
+                  fontSize: "18px",
+                  color: "rgba(255, 255, 255, 0.8)",
+                  marginBottom: "40px",
+                  textShadow: "0 4px 20px rgba(0, 0, 0, 1)",
+                }}
+              >
+                Comprehensive IT solutions tailored to your needs
+              </p>
             </div>
+
+            <ServiceSectionList
+              services={[
+                {
+                  title: "Infrastructure",
+                  description: [
+                    "Solid expertise in managing and orchestrating your infrastructures with cloud-native solutions.",
+                  ],
+                  icon: "services-1.jpg",
+                },
+                {
+                  title: "Development",
+                  description: [
+                    "Performant, distributed, robust and maintainable applications built with modern technologies.",
+                  ],
+                  icon: "services-2.jpg",
+                },
+                {
+                  title: "Security",
+                  description: [
+                    "Full degree security consultancy, from system architecture to application security.",
+                  ],
+                  icon: "services-3.jpg",
+                },
+              ]}
+            />
           </section>
 
           {/* Partners Section */}
@@ -658,7 +617,7 @@ export default function Home(): JSX.Element {
 
               <div className="contact-button">
                 <GlassButton
-                className="contact-glass-button"
+                  className="contact-glass-button"
                   variant="secondary"
                   onClick={() => window.location.href = 'mailto:amministrazione@sfbs.it'}
                 >
