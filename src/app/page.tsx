@@ -449,66 +449,43 @@ export default function Home(): JSX.Element {
           </section>
 
           {/* Services Section */}
-          <section
-            id="services"
-            style={{
-              padding: "100px 20px",
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-            }}
-          >
-            <div style={{ textAlign: "center", marginBottom: "60px" }}>
-              <h2
-                style={{
-                  fontSize: "clamp(32px, 4vw, 48px)",
-                  fontWeight: "bold",
-                  color: "white",
-                  marginBottom: "20px",
-                  textShadow: "0 3px 15px rgba(0, 0, 0, 1)",
-                }}
-              >
-                Our Services
-              </h2>
-              <p
-                style={{
-                  fontSize: "18px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  marginBottom: "40px",
-                  textShadow: "0 4px 20px rgba(0, 0, 0, 1)",
-                }}
-              >
-                Comprehensive IT solutions tailored to your needs
-              </p>
-            </div>
+          <section id="services">
+            <div className="services-container">
+              <div className="services-description">
+                <h2>
+                  Our Services
+                </h2>
+                <p>
+                  Comprehensive IT solutions tailored to your needs
+                </p>
+              </div>
 
-            <ServiceSectionList
-              services={[
-                {
-                  title: "Infrastructure",
-                  description: [
-                    "Solid expertise in managing and orchestrating your infrastructures with cloud-native solutions.",
-                  ],
-                  icon: "services-1.jpg",
-                },
-                {
-                  title: "Development",
-                  description: [
-                    "Performant, distributed, robust and maintainable applications built with modern technologies.",
-                  ],
-                  icon: "services-2.jpg",
-                },
-                {
-                  title: "Security",
-                  description: [
-                    "Full degree security consultancy, from system architecture to application security.",
-                  ],
-                  icon: "services-3.jpg",
-                },
-              ]}
-            />
+              <ServiceSectionList
+                services={[
+                  {
+                    title: "Infrastructure",
+                    description: [
+                      "Solid expertise in managing and orchestrating your infrastructures with cloud-native solutions.",
+                    ],
+                    icon: "services-1.jpg",
+                  },
+                  {
+                    title: "Development",
+                    description: [
+                      "Performant, distributed, robust and maintainable applications built with modern technologies.",
+                    ],
+                    icon: "services-2.jpg",
+                  },
+                  {
+                    title: "Security",
+                    description: [
+                      "Full degree security consultancy, from system architecture to application security.",
+                    ],
+                    icon: "services-3.jpg",
+                  },
+                ]}
+              />
+            </div>
           </section>
 
           {/* Partners Section */}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import GlassPanel from "../glassism/glass-panel";
 import { GlassCard } from "../glassism/glass-card";
 import { GlassButton } from "../glassism/glass-button";
+import './services-section.css'
 
 export interface ServiceSectionProps {
   title: string;
@@ -14,23 +15,11 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({ icon, title, descriptio
   <GlassCard
     height={380}
     blur={20}
-    style={{
-      maxWidth: "380px",
-      minWidth: "300px",
-      borderRadius: "24px",
-      transition: "transform 0.3s ease, border-color 0.3s ease",
-    }}
+    className="services-glass-card"
   >
-    <div
-      style={{
-        textAlign: "center",
-        padding: "20px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
+    <div className="services-glass-container"
     >
-      <div className="services-icon" style={{ fontSize: "64px", marginBottom: "20px", position: "relative" }}>
+      <div className="services-icon">
         <GlassPanel
           style={{ padding: "0", position: "absolute", width: "100%", height: "100%" }}
           blur={0.4}
@@ -41,52 +30,27 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({ icon, title, descriptio
           alt={title}
           width={300}
           height={300}
-          style={{
-            opacity: "0.7",
-            borderRadius: "24px",
-            border: "1px solid rgba(255,255,255,0.1)",
-            transition: "border-color 0.3s ease",
-          }}
+          className="services-image"
         />
       </div>
 
-      <h3
-      className="services-title"
-        style={{
-          fontSize: "28px",
-          marginBottom: "20px",
-          color: "white",
-          textShadow: "0 4px 20px rgba(0, 0, 0, 1)",
-        }}
-      >
+      <h3 className="services-title">
         {title}
       </h3>
 
       {description.map((line, i) => (
         <p
           key={i}
-          className="services-description"
-          style={{
-            fontSize: "16px",
-            lineHeight: 1.7,
-            marginBottom: "30px",
-            color: "rgba(255,255,255,1)",
-            textShadow: "0 4px 20px rgba(0, 0, 0, 1)",
-          }}
-        >
+          className="services-description">
           {line}
         </p>
       ))}
-
-      <GlassButton
-        variant="primary"
-        blur={100}
-        width={140}
-        glassColor="rgba(0, 16, 156, 0.1)"
-      >
-        Learn More
-      </GlassButton>
-    </div>
+      <div className="glass-button-wrapper">
+        <GlassButton variant="primary">
+          Learn More
+        </GlassButton>
+      </div>
+      </div>
   </GlassCard>
 );
 
