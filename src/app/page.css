@@ -202,6 +202,59 @@
     text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
 }
 
+#partners {
+    padding: 100px 20px;
+}
+
+#partners .partners-container {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#partners .partners-container > h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+}
+
+#partners .partners-container > p {
+    font-size: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.partners-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+}
+
+.partners-listed {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.partners-images {
+    margin: 30px;
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,1));
+}
+
+.partners-listed > p {
+    width: 100%;
+}
+
 .footer {
     position: fixed;
     bottom: -10px;

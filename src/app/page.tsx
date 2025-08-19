@@ -489,31 +489,16 @@ export default function Home(): JSX.Element {
           </section>
 
           {/* Partners Section */}
-          <section id="partners" style={{
-            padding: '100px 20px',
-          }}>
+          <section id="partners">
             <div style={{
               maxWidth: '1200px',
               margin: '0 auto',
             }}>
-              <div style={{
-                textAlign: 'center',
-                marginBottom: '60px',
-              }}>
-                <h2 style={{
-                  fontSize: 'clamp(32px, 4vw, 48px)',
-                  fontWeight: 'bold',
-                  color: 'white',
-                  marginBottom: '20px',
-                  textShadow: '0 4px 20px rgba(0, 0, 0, 1)',
-                }}>
+              <div className="partners-container">
+                <h2>
                   Our Partners
                 </h2>
-                <p style={{
-                  fontSize: '20px',
-                  textShadow: '0 4px 20px rgba(0, 0, 0, 1)',
-                  color: 'rgba(255,255,255,0.8)',
-                }}>
+                <p>
                   Trusted by industry leaders
                 </p>
               </div>
@@ -527,35 +512,16 @@ export default function Home(): JSX.Element {
                   background: 'rgba(255, 174, 0, 0.06)',
                 }}
               >
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  gap: '40px',
-                  width: '100%',
-                }}>
+                <div className="partners-list">
                   {[{ name: 'RedHat', icon: "partners/redhat.png" }, { name: 'VMware', icon: "partners/vmware.png" }, { name: 'Engineering', icon: "partners/engineering.png" }].map((partner, index) => (
-                    <div key={index} style={{
-                      fontSize: '24px',
-                      fontWeight: 'bold',
-                      color: 'rgba(255,255,255,0.8)',
-                      textShadow: '0 2px 10px rgba(0, 0, 0, 1)',
-                      display: 'flex',
-                      alignContent: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
-                      textAlign: 'center',
-                    }}>
+                    <div key={index} className="partners-listed">
                       <Image
                         src={partner.icon}
                         alt={partner.name}
                         width={150}
                         height={150}
-                        style={{
-                          margin: '30px',
-                          filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 1))',
-                        }} />
+                        className="partners-images"
+                        />
                       <p style={{ width: '100%' }}>{partner.name}</p>
                     </div>
                   ))}
