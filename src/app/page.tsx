@@ -149,18 +149,13 @@ export default function Home(): JSX.Element {
       {/* Content Overlay */}
       <div ref={overlayRef} className="relative" style={{ zIndex: 1 }}>
         {/* Header/Navigation */}
-        <header style={{
-          position: 'fixed',
-          top: -15,
-          left: -5,
-          right: -5,
-          zIndex: 1000,
-        }}>
+        <header className="header-navigation">
           <GlassPanel
             width={'100%'}
             height={'100%'}
             blur={25}
             glassColor="rgba(255, 255, 255, 0.03)"
+            className="header-glass-panel"
             style={{
               paddingLeft: '2.5em',
               display: 'flex',
@@ -171,14 +166,8 @@ export default function Home(): JSX.Element {
 
             {/* Logo - Left aligned */}
             <div
+              className="logo"
               onClick={() => scrollToSection('hero')}
-              style={{
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                height: '100%',
-                marginTop: '10px',
-              }}
             >
               <Image
                 src="/sfbs-logo.png"
@@ -189,65 +178,37 @@ export default function Home(): JSX.Element {
             </div>
 
             {/* Navigation */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              marginLeft: '2.5em',
-              gap: '30px',
-              height: '100%',
-              marginTop: '10px',
-            }}>
+            <div id="navigation">
               {/* Desktop Navigation */}
-              <nav style={{
-                display: isMobile ? 'none' : 'flex',
-                gap: '30px',
-                alignItems: 'center',
-                height: '100%',
-              }}>
+              <nav className={`desktop-nav ${isMobile ? 'hidden' : ''}`}>
                 {['Home', 'About', 'Services', 'Partners', 'Contact'].map((item) => (
                   <button
+                    className={`desktop-nav-button 
+                      ${activeSection === (item.toLowerCase() === 'home' ? 'hero' : item.toLowerCase())
+                        ? 'active'
+                        : ''
+                      }`}
                     key={item}
-                    onClick={() => scrollToSection(item.toLowerCase() === 'home' ? 'hero' : item.toLowerCase())}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: activeSection === (item.toLowerCase() === 'home' ? 'hero' : item.toLowerCase()) ? '#4488ff' : 'white',
-                      fontSize: '16px',
-                      cursor: 'pointer',
-                      transition: 'color 0.3s ease',
-                      fontWeight: activeSection === (item.toLowerCase() === 'home' ? 'hero' : item.toLowerCase()) ? '600' : '400',
-                      padding: '10px 0',
-                    }}
+                    onClick={() =>
+                      scrollToSection(item.toLowerCase() === 'home' ? 'hero' : item.toLowerCase())
+                    }
                   >
                     {item}
                   </button>
+
                 ))}
               </nav>
 
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                style={{
-                  display: isMobile ? 'block' : 'none',
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '24px',
-                  cursor: 'pointer',
-                  padding: '10px',
-                  marginTop: '10px',
-                  color: mobileMenuOpen ? '#4488ff' : 'white',
-                  transition: 'color 0.3s ease',
-                }}
+                className={`mobile-nav-button ${isMobile ? 'visible' : ''} ${mobileMenuOpen ? 'active' : ''}`}
               >
                 ☰
               </button>
             </div>
             {!mobileMenuOpen && !isMobile && (
-              <div style={{
-                paddingRight: '20px',
-                marginRight: '20px',
-                marginTop: '10px',
-              }}>
+              <div className="work-with-us-wrapper">
                 <GlassButton
                   variant="secondary"
                   width={200}
@@ -261,31 +222,15 @@ export default function Home(): JSX.Element {
 
           {/* Mobile Menu Dropdown */}
           {mobileMenuOpen && isMobile && (
-            <div style={{
-              display: 'flex',
-              justifyContent: 'right',
-              marginRight: '10px',
-            }}>
-              <GlassPanel style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
+            <div className="mobile-menu-wrapper">
+              <GlassPanel className="mobile-menu-panel">
                 {['Home', 'About', 'Services', 'Partners', 'Contact'].map((item) => (
                   <button
                     key={item}
-                    onClick={() => scrollToSection(item.toLowerCase() === 'home' ? 'hero' : item.toLowerCase())}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: 'white',
-                      fontSize: '18px',
-                      cursor: 'pointer',
-                      padding: '10px',
-                      textAlign: 'center',
-                    }}
-
+                    onClick={() =>
+                      scrollToSection(item.toLowerCase() === 'home' ? 'hero' : item.toLowerCase())
+                    }
+                    className="mobile-menu-button"
                   >
                     {item}
                   </button>
@@ -293,7 +238,9 @@ export default function Home(): JSX.Element {
                 <GlassButton
                   variant="secondary"
                   width={200}
-                  onClick={() => window.location.href = 'mailto:amministrazione@sfbs.it'}
+                  onClick={() =>
+                    window.location.href = 'mailto:amministrazione@sfbs.it'
+                  }
                 >
                   Work with us
                 </GlassButton>
@@ -521,7 +468,7 @@ export default function Home(): JSX.Element {
                         width={150}
                         height={150}
                         className="partners-images"
-                        />
+                      />
                       <p style={{ width: '100%' }}>{partner.name}</p>
                     </div>
                   ))}
@@ -579,14 +526,7 @@ export default function Home(): JSX.Element {
             blur={25}
             glassColor="rgba(255, 255, 255, 0.03)"
           >
-            <div style={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '20px',
-            }}>
+            <div className="social-button-container">
               <div style={{
                 display: 'flex',
                 gap: '20px',
