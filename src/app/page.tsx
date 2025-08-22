@@ -18,6 +18,8 @@ import "@/app/page.css"
 import ContactSectionList from "./components/contact-section/contact-section-list";
 import ServiceSection from "./components/services-section/services-section";
 import ServiceSectionList from "./components/services-section/services-section-list";
+import StatsSection from "./components/stats-section/stats-section";
+import StatsSectionList from "./components/stats-section/stats-section-list";
 
 export default function Home(): JSX.Element {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -156,13 +158,7 @@ export default function Home(): JSX.Element {
             blur={25}
             glassColor="rgba(255, 255, 255, 0.03)"
             className="header-glass-panel"
-            style={{
-              paddingLeft: '2.5em',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              width: '100%',
-            }}>
+          >
 
             {/* Logo - Left aligned */}
             <div
@@ -223,14 +219,14 @@ export default function Home(): JSX.Element {
           {/* Mobile Menu Dropdown */}
           {mobileMenuOpen && isMobile && (
             <div className="mobile-menu-wrapper">
-              <GlassPanel className="mobile-menu-panel">
+              <GlassPanel className="mobile-menu-panel" style={{ flexDirection: 'column' }}>
                 {['Home', 'About', 'Services', 'Partners', 'Contact'].map((item) => (
                   <button
+                    className="mobile-menu-button"
                     key={item}
                     onClick={() =>
                       scrollToSection(item.toLowerCase() === 'home' ? 'hero' : item.toLowerCase())
                     }
-                    className="mobile-menu-button"
                   >
                     {item}
                   </button>
@@ -347,50 +343,15 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Stats */}
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-around',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '20px',
-              }}>
-                {[
-                  { number: '50+', label: 'Certifications' },
-                  { number: '42', label: 'Projects' },
-                  { number: '16', label: 'Partnerships' },
-                  { number: '100%', label: 'Client Satisfaction' },
-                ].map((stat, index) => (
-                  <GlassCard
-                    key={index}
-                    height={150}
-                    blur={15}
-                    glassColor="rgba(68,136,255,0.05)"
-                    style={{
-                      minWidth: '280px',
-                    }}
-                  >
-                    <div style={{ textAlign: 'center' }}>
-                      <div style={{
-                        fontSize: '42px',
-                        fontWeight: 'bold',
-                        color: '#4488ff',
-                        marginBottom: '10px',
-                        textShadow: '0 2px 10px rgba(0, 0, 0, 1)',
-                      }}>
-                        {stat.number}
-                      </div>
-                      <div style={{
-                        fontSize: '16px',
-                        color: 'rgba(255,255,255,0.8)',
-                        textTransform: 'uppercase',
-                        letterSpacing: '1px',
-                        textShadow: '0 4px 20px rgba(0, 0, 0, 1)'
-                      }}>
-                        {stat.label}
-                      </div>
-                    </div>
-                  </GlassCard>
-                ))}
+              <div className="stats-section">
+                <StatsSectionList
+                  stats={[
+                    { number: '50+', label: 'Certifications' },
+                    { number: '42', label: 'Projects' },
+                    { number: '16', label: 'Partnerships' },
+                    { number: '100%', label: 'Client Satisfaction' },
+                  ]}
+                />
               </div>
             </div>
           </section>

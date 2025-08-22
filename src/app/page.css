@@ -7,7 +7,7 @@
 }
 
 .header-glass-panel {
-    padding: 0 0 0 2.5em;
+    padding-left: 2.5em !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,10 +36,7 @@
     gap: 30px;
     align-items: center;
     height: 100%;
-}
-
-.desktop-nav .hidden {
-    display: none;
+    position: relative;
 }
 
 .desktop-nav-button {
@@ -86,6 +83,7 @@
 
 .mobile-menu-wrapper {
   display: flex;
+  align-items: center;
   justify-content: right;
   margin-right: 10px;
 }
@@ -309,6 +307,14 @@
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 40px;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 #partners {
