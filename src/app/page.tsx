@@ -121,7 +121,8 @@ export default function Home(): JSX.Element {
         section {
           width: 100%;
         }
-      `}</style>
+      `}
+      </style>
 
       {/* Canvas Background - Fixed Position */}
       <div ref={canvasContainerRef} className="fixed inset-0 w-full h-full" style={{ zIndex: 0 }}>
@@ -287,7 +288,7 @@ export default function Home(): JSX.Element {
         <GlassPanel blur={10}
           glassColor="rgba(0, 0, 0, 0)"
           borderRadius={0}
-          className="about-section-panel" >
+          className="about-section-panel">
 
           <section id="about">
             <div>
