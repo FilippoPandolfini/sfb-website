@@ -168,14 +168,17 @@
     text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
 }
 
+.about-section-panel {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+}
+
 .about-section-panel>div:last-child {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     height: fit-content !important;
     flex-direction: column !important;
-    margin-left: -10px !important;
-    margin-right: -10px !important;
 }
 
 #about {
