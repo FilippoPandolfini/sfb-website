@@ -285,11 +285,6 @@
     margin: 0 auto;
 }
 
-#services .services-description {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
 #services .services-description>h2 {
     font-size: clamp(32px, 4vw, 48px);
     font-weight: bold;
