@@ -34,6 +34,10 @@
     padding: 20px;
 }
 
+.contact-glass-panel > div {
+    justify-content: center !important;
+}
+
 .contact-section h2 {
     font-size: clamp(32px, 4vw, 48px);
     font-weight: bold;
