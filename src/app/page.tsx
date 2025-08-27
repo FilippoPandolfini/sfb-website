@@ -154,11 +154,12 @@ export default function Home(): JSX.Element {
         {/* Header/Navigation */}
         <header className="header-navigation">
           <GlassPanel
+            className="header-glass-panel"
+            style={{ paddingLeft: '2.5em' }}
             width={'100%'}
             height={'100%'}
             blur={25}
             glassColor="rgba(255, 255, 255, 0.03)"
-            className="header-glass-panel"
           >
 
             {/* Logo - Left aligned */}
